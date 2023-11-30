@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class ATM {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter the no of  2000 notes :");
+        int NUM1 = scanner.nextInt();
+         System.out.println("enter the no of  500 notes :");
+        int NUM2 = scanner.nextInt();
+         System.out.println("enter the no of  200 notes :");
+        int NUM3 = scanner.nextInt();
+         System.out.println("enter the no of  100 notes :");
+        int NUM4 = scanner.nextInt();
+        int Balance = 2000*NUM1 + 500*NUM2 + 200*NUM3 + 100*NUM4;
+        System.out.print("the Available balance in atm is  " +Balance);
+        scanner.close();
+    }
+}
