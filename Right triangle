@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class RightTriangle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows for the right triangle: ");
+        int numRows = scanner.nextInt();
+
+        System.out.println("Right-angled Triangle:");
+
+        for (int i = 1; i <= numRows; i++) {
+    
+            for (int j = 1; j <= numRows - i; j++) {
+                System.out.print("");
+            }
+
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+
+            System.out.println("\n");
+        }
+
+        scanner.close();
+    }
+}
