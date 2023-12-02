@@ -1,0 +1,69 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MeanMedianMode {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] array = new int[size];
+        System.out.println("Enter the elements of the array:");
+
+        for (int i = 0; i < size; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        Arrays.sort(array);
+
+        double sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        double mean = sum / size;
+        
+        double median;
+        if (size % 2 == 0) {
+            median = (array[size / 2 - 1] + array[size / 2]) / 2.0;
+        } else {
+            median = array[size / 2];
+        }
+
+        int mode = findMode(array);
+
+        System.out.println("Mean: " + mean);
+        System.out.println("Median: " + median);
+        System.out.println("Mode: " + mode);
+
+        scanner.close();
+    }
+
+    private static int findMode(int[] array) {
+        int mode = array[0];
+        int maxCount = 1;
+
+        int current = array[0];
+        int currentCount = 1;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] == current) {
+                currentCount++;
+            } else {
+                if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                    mode = current;
+                }
+                current = array[i];
+                currentCount = 1;
+            }
+        }
+
+        if (currentCount > maxCount) {
+            mode = current;
+        }
+
+        return mode;
+    }
+}
